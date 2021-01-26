@@ -1,0 +1,7 @@
+{
+  "name": "ecomm_app_exam",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
