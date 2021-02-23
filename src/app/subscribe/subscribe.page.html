@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1" slot="start"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="mode=='subscribe'" >
+  <form [formGroup]="userForm">
+    <ion-grid class="topMargin">
+      <ion-row>
+        <ion-col offsetLg="3" sizeLg="3">
+          <ion-item class="">
+            <ion-label  color="primary" position="floating" class="">Nom d'utilisateur</ion-label>
+            <ion-input  formControlName="username"  maxlength=20></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col  sizeLg="3" >
+          <ion-item class="">
+            <ion-label  color="primary" position="floating" class="">Email</ion-label>
+            <ion-input formControlName="mail"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col   offsetLg="3" sizeLg="3">
+          <ion-item class="">
+            <ion-label  color="primary" position="floating" class="">Mot de passe</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeLg="3" >
+          <ion-item  class="">
+            <ion-label color="primary" position="floating" class="">ressaisir le MP</ion-label>
+            <ion-input type="password" formControlName="repassword"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col offsetLg="3" sizeLg="3">
+          <ion-item class="">
+            <ion-label  color="primary" position="floating" class="">Prénom</ion-label>
+            <ion-input  formControlName="firstName"  maxlength=35></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col sizeLg="3">
+          <ion-item class="">
+            <ion-label  color="primary" position="floating" class="">Nom</ion-label>
+            <ion-input formControlName="lastName" maxlength=35></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+
+
+
+        <ion-row>
+
+
+          <ion-col offsetLg="3" sizeLg="6">
+            <ion-item >
+              <ion-label  color="primary" position="floating" class="">Telephone</ion-label>
+              <ion-input formControlName="phone" type="numeric"></ion-input>
+            </ion-item>
+          </ion-col>
+
+      </ion-row>
+      <ion-row>
+
+        <ion-col offsetLg="3" sizeLg="4">
+          <ion-item class="">
+            <ion-label  color="primary" position="floating" class="">Adresse</ion-label>
+            <ion-textarea rows="2" formControlName="adresse"  maxlength=150></ion-textarea>
+          </ion-item>
+        </ion-col>
+
+        <ion-col  sizeLg="3">
+          <ion-item>
+            <ion-label  color="primary" position="floating" class="">Ville</ion-label>
+            <ion-select formControlName="city" class="">
+              <ion-select-option *ngFor="let city of cities" [value]="city">{{city}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="topMargin">
+        <ion-col offsetLg="4" sizeLg="4" offset="3" size="6">
+          <ion-button fill="solid" expand="block" (click)="onAddUser()" [disabled]="!(userForm.valid)" >S'inscrire</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </form>
+
+</ion-content>
+<ion-content *ngIf="mode=='success'">
+
+  <ion-grid class="topMargin">
+    <ion-row align="center">
+      <ion-col size="4" offset="5" align="center">
+        <ion-img src="/assets/images/success.png"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row align="center">
+      <ion-col size="4" offset="4" align="center">
+        <ion-label color="primary" class="bigText">Felicitation</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row align="center" class="topMargin">
+      <ion-col>
+        Inscription reussie verifier votre Email pour Consulter vos identifiants de connexion
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="topMargin" align="center">
+      <ion-col offsetLg="2">
+        <ion-item class="textBold">
+          <ion-button fill="clear" routerLink="/login" style="font-size: 15px">Login
+            <ion-icon name="arrow"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

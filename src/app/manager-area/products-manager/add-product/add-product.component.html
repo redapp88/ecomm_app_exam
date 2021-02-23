@@ -1,0 +1,68 @@
+<ion-header class="ion-text-center">
+  <ion-toolbar>
+    <ion-title >
+      <ion-label class="font-weight-bold">Nouvel Article</ion-label>
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <ion-grid style="margin-top: 10px">
+    <form [formGroup]="productForm">
+
+      <ion-row class="topMargin">
+        <ion-col size="10" offset="1">
+          <ion-item>
+            <ion-label class="smallText" align="left" position="floating">
+              Reference
+            </ion-label>
+            <ion-input type="text" formControlName="id" maxlength=10></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-item>
+            <ion-label class="smallText" align="left" position="floating">
+              Description
+            </ion-label>
+            <ion-input type="text" formControlName="label" maxlength=30></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-item>
+            <ion-label  class="smallText" align="left" position="floating">
+              Prix
+            </ion-label>
+            <ion-input type="number" numbersOnly placeholder="Entrer le prix" formControlName="price" min="0.1" maxlength=30></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-item>
+            <ion-label class="smallText" align="left" position="floating">
+              Quantité
+            </ion-label>
+            <ion-input type="number" numbersOnly placeholder="Entrer la quantité" formControlName="quantity" min="1" maxlength=30></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="topMargin">
+        <ion-col size="8" offset="2">
+          <ion-button expand="block" fill="solid" (click)="onAddProduct()" [disabled]="!(productForm.valid)">Ajouter</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+
+</ion-content>

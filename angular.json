@@ -37,6 +37,10 @@
               },
               {
                 "input": "src/global.scss"
+              },
+
+              {
+                "input": "src/styles.css"
               }
             ],
             "scripts": []
@@ -128,7 +132,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -174,7 +180,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@ionic/angular-toolkit"
+    "defaultCollection": "@ionic/angular-toolkit",
+    "analytics": "dc285540-a9cd-488c-bcf9-9d5522bf5cfb"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

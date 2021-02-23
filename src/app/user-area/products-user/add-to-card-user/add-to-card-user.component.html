@@ -1,0 +1,65 @@
+<ion-header class="ion-text-center">
+  <ion-toolbar>
+    <ion-title >
+      <ion-label class="font-weight-bold">Ajout au Pannier</ion-label>
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+
+  <ion-grid style="margin-top: 10px">
+    <form [formGroup]="productForm">
+      <ion-row class="topMargin">
+        <ion-col size="10" offset="1">
+          <ion-item>
+            <ion-label class="bold" align="center">
+              {{product.label}}
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-item lines="none">
+            <ion-label class="smallText" align="left">
+              <ion-text class="bold"> Prix:</ion-text>
+              {{product.price | number:'1.2-2'}} Dhs
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label class="smallText" align="left">
+              <ion-text class="bold"> Date d'ajout:</ion-text>
+              {{product.creationDate | date:"dd/MM/yyyy à HH:mm"}}
+            </ion-label>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label class="smallText" align="left">
+              <ion-text class="bold"> Il reste:</ion-text>
+              {{product.quantity }} unités
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label class="smallText bold" align="left" position="floating">
+              Quantité:
+            </ion-label>
+            <ion-input value="10" type="number" numbersOnly placeholder="Entrer la quantité" formControlName="quantity" min="1" [max]="product.quantity"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="topMargin">
+        <ion-col size="8" offset="2">
+          <ion-button expand="block" fill="solid" (click)="onAddToCard()" [disabled]="!(productForm.valid)">Ajouter Au Pannier</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+
+</ion-content>

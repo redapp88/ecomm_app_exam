@@ -1,0 +1,53 @@
+<ion-content>
+    <form [formGroup]="form">
+        <div *ngIf="isLoading" align="center">
+            <ion-spinner class="align-middle"  ></ion-spinner>
+        </div>
+        <ion-grid *ngIf="!isLoading">
+            <ion-row>
+                <ion-col size="6" sizeLg="4" offsetLg="3">
+                    <ion-item class="smallText">
+                        <ion-label align="left" position="floating" class="bold">
+                            mot clefs
+                        </ion-label>
+                        <ion-input type="text" formControlName="label" class="smallText"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="3" offset="0" sizeLg="1" offsetLg="1">
+                    <ion-button expand="full" (click)="loadProducts()">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <div *ngIf="loadedProducts?.length > 0">
+                <ion-row>
+                    <ion-col *ngFor="let product of loadedProducts" size="6" sizeLg="3" (click)="onAddToCard(product)">
+                        <ion-card align="center" color="leight" style="background:#dbdbdb" class="clickable">
+                            <ion-card-header>
+                                <ion-card-title>{{product.label}}</ion-card-title>
+                            </ion-card-header>
+
+                            <ion-card-content>
+                                <ion-item class="smallText bold">{{product.price | number:'1.2-2'}} Dhs</ion-item>
+                                <ion-item class="smallText bold" [ngClass]="{'text-red': product.quantity === 0}">Il
+                                    reste {{product.quantity}} unités
+                                </ion-item>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </div>
+
+            <div *ngIf="loadedProducts?.length == 0" align="center">
+                <ion-row class="topMargin"></ion-row>
+                <ion-row class="topMargin">
+                    <ion-col>
+                        <h2>Aucun produit disponible</h2>
+                    </ion-col>
+                </ion-row>
+
+            </div>
+        </ion-grid>
+    </form>
+</ion-content>
+

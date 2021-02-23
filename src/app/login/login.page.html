@@ -1,0 +1,78 @@
+<ion-content>
+    <div>
+        <form #f="ngForm" (ngSubmit)="onLogin(f)">
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <div align="center">
+                            <ion-img src="/assets/images/logo.png"></ion-img>
+                        </div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4">
+                        <ion-list>
+                            <ion-item>
+                                <ion-label class="font-weight-bold" align="left" position="floating">Nom d'utilisateur
+                                </ion-label>
+                                <ion-input
+                                        align="left"
+                                        ngModel
+                                        name="username"
+                                        required
+                                        #idCtrl="ngModel"
+                                        type="text"
+                                        class="font-weight-bold">
+                                </ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label class="font-weight-bold" align="left" position="floating">
+                                    mot de passe
+                                </ion-label>
+                                <ion-input
+                                        class="font-weight-bold"
+                                        align="left"
+                                        ngModel
+                                        name="password"
+                                        type="password"
+                                        required
+                                        minlength="4"
+                                        #passwordCtrl="ngModel">
+                                </ion-input>
+                            </ion-item>
+                        </ion-list>
+
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+
+                    <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4">
+                        <ion-button
+                                class="font-weight-bold"
+                                type="submit"
+                                color="primary"
+                                expand="block">
+                            Login
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4">
+                        <ion-button
+                                class="smallText"
+                                color="danger"
+                                color="primary"
+                                expand="block"
+                                fill="clear"
+                                routerLink="/subscribe">
+                            S'inscrire
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </form>
+    </div>
+</ion-content>

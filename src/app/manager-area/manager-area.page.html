@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start" color="secondary" (click)="onEditPassword()">
+      <ion-icon name="person-outline" slot="icon-only"></ion-icon></ion-button>
+    <ion-button slot="end" color="danger" (click)="onLogout()">
+      <ion-icon name="power" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="commandes">
+        <ion-label class="bold">Commandes</ion-label>
+        <ion-icon name="chatbox-ellipses"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="products">
+        <ion-label class="bold">Produits</ion-label>
+        <ion-icon name="card"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="users">
+        <ion-label class="bold">Utilisateurs</ion-label>
+
+        <ion-icon name="people-outline"></ion-icon>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

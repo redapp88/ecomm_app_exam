@@ -1,0 +1,38 @@
+<ion-fab horizontal="end" vertical="top" slot="fixed">
+  <ion-fab-button color="dark">
+    <ion-label >{{currentUser.firstName.charAt(0)}}{{currentUser.lastName.charAt(0)}}</ion-label>
+  </ion-fab-button>
+  <ion-fab-list side="bottom">
+    <ion-fab-button color="light" (click)="onEditProfile()">
+      <ion-icon color="primary" name="person-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="light" (click)="onEditPassword()">
+      <ion-icon name="eye-off-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="light" (click)="onLogout()">
+      <ion-icon color="danger" name="power"></ion-icon>
+    </ion-fab-button>
+
+  </ion-fab-list>
+</ion-fab>
+<ion-content>
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="commandes">
+        <ion-label class="bold">Commandes</ion-label>
+        <ion-icon name="chatbox-ellipses"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="products">
+        <ion-label class="bold">Articles</ion-label>
+        <ion-icon name="card"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="cart">
+        <ion-label class="bold">Pannier</ion-label>
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

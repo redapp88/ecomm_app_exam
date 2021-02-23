@@ -1,0 +1,116 @@
+<ion-header class="ion-text-center">
+  <ion-toolbar>
+    <ion-title >
+      <ion-label class="font-weight-bold">Details Commande:{{commande.id}}</ion-label>
+    </ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <ion-grid >
+    <ion-row>
+      <ion-col offset="8">
+        <ion-button (click)="onDownloadDetails(commande)">
+          Details:
+          <ion-icon name="download-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label class="smallText bold">
+              <ion-text class="bold"> Id:</ion-text>
+              {{commande.id}}
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-text class="bold">
+             Client:   </ion-text>
+            <ion-text> {{commande.user.firstName}}    {{commande.user.lastName}}</ion-text>
+
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-text class="bold">Date:</ion-text>
+            <ion-text>{{commande.dateCommande | date:"dd/MM/yyyy HH:mm"}}</ion-text>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+            <ion-text class="bold"> Methode de payement:</ion-text>
+          <ion-text>{{commande.payementMethode}}</ion-text>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+    <ion-col>
+      <ion-item>
+          <ion-text class="bold"> Adresse de livraison:</ion-text>
+          {{commande.shippingAdress}} {{commande.shippingCity}}
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="smallText bold">
+            <ion-text class="bold"> Status:</ion-text>
+            <ion-text
+                    [ngClass]="{'text-yellow': commande.state === 'WAITING','text-red': commande.state === 'DELETED','text-green': commande.state === 'SHIPPED'}">
+              {{statusTranslate(commande.state)}}</ion-text>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="smallText bold">
+            <ion-text class="bold"> Total:</ion-text>
+            {{commande.total | number:'1.2-2'}} Dhs
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="commande.state=='WAITING'">
+      <ion-col>
+        <ion-button color="success" (click)="onActionOnCommande('SHIPPED')">
+          Expédier
+          <ion-icon name="send-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col>
+        <ion-button color="danger" (click)="onActionOnCommande('DELETED')">Supprimer
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

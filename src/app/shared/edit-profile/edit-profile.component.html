@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title >
+      <ion-label class="font-weight-bold">Modification du compte</ion-label>
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-spinner class="align-middle" *ngIf="isLoading" ></ion-spinner>
+  <form [formGroup]="userForm" *ngIf="!isLoading">
+    <ion-grid class="topMargin">
+      <ion-row>
+        <ion-col >
+          <ion-item class="">
+            <ion-label  color="primary" position="floating" class="">Nom d'utilisateur</ion-label>
+            <ion-input disabled  formControlName="username"  maxlength=20></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col >
+          <ion-item>
+            <ion-label  color="primary" position="floating" class="">Email</ion-label>
+            <ion-input disabled formControlName="mail"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label  color="primary" position="floating" class="">Prénom</ion-label>
+            <ion-input  formControlName="firstName"  maxlength=35></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col >
+          <ion-item class="">
+            <ion-label  color="primary" position="floating" class="">Nom</ion-label>
+            <ion-input formControlName="lastName" maxlength=35></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+
+
+        <ion-col>
+          <ion-item>
+            <ion-label  color="primary" position="floating" class="">Telephone</ion-label>
+            <ion-input formControlName="phone"></ion-input>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+
+        <ion-col  size="8">
+          <ion-item class="">
+            <ion-label  color="primary" position="floating" class="">Adresse</ion-label>
+            <ion-textarea rows="2" formControlName="adresse"  maxlength=150></ion-textarea>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="4" >
+          <ion-item >
+            <ion-label  color="primary" position="floating" class="">Ville</ion-label>
+            <ion-select formControlName="city" class="">
+              <ion-select-option *ngFor="let city of cities" [value]="city">{{city}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="topMargin">
+        <ion-col offsetLg="4" sizeLg="4" offset="3" size="6">
+          <ion-button fill="solid" expand="block" (click)="onEditUser()" [disabled]="!(userForm.valid)" >Mettre à jour</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </form>
+</ion-content>

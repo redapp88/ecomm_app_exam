@@ -1,0 +1,103 @@
+#cercle {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    background: powderblue;
+}
+
+#carre {
+    height: 30px;
+    width: 60px;
+    background: red;
+    -ms-transform: rotate(0deg); /* Internet Explorer */
+    -moz-transform: rotate(0deg); /* Firefox */
+    -webkit-transform: rotate(0deg); /* Safari et Chrome */
+    -o-transform: rotate(0deg); /* Opera */
+}
+#ovale {
+    width: 80px;
+    height: 50px;
+    border-radius: 60px / 40px;
+    background: orange;
+}
+.my-custom-modal-css .modal-wrapper {
+    top: 20%;
+    min-height: 60%;
+    height: 60%;
+    width: 90%;
+    min-width: 90%;
+    position: absolute;
+    display: block;
+    background: transparent;
+}
+
+.big-modal-css .modal-wrapper {
+    top: 5%;
+    min-height: 90%;
+    height: 90%;
+    width: 90%;
+    min-width: 90%;
+    position: absolute;
+    display: block;
+}
+
+.midlle-modal-css .modal-wrapper {
+    top: 15%;
+    min-height: 60%;
+    height: 60%;
+    width: 70%;
+    min-width: 70%;
+    position: absolute;
+    display: block;
+    background: transparent;
+}
+
+
+
+.topMargin{
+    margin-top: 30px;
+}
+.transparent{
+    background: transparent;
+}
+.leftMargin{
+    margin-left: 10px;
+}
+
+.rightMargin{
+    margin-right: 10px;
+}
+.smallText{
+    font-size: small;
+}
+.bold{
+    font-weight: bold;
+}
+
+.forecast_container{
+    /*border: #a0a0a0 1px solid;*/
+    overflow-x:hidden;
+    overflow-y:scroll!important;
+    word-wrap: break-word;
+    height:110px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.border-bottom{
+    border-bottom: #a0a0a0 solid thin;
+}
+.text-red{
+color:red;
+ }
+.text-yellow{
+    color: royalblue;
+
+}
+
+.text-green{
+    color: seagreen;
+
+}
+.clickable{
+    cursor: pointer;
+}
