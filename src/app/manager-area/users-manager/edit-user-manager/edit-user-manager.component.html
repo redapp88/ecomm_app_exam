@@ -13,7 +13,7 @@
 <ion-content >
   <ion-grid style="margin-top: 10px">
     <form [formGroup]="userForm">
-      <ion-row class="topMargin">
+      <ion-row>
         <ion-col size="10" offset="1">
           <ion-item>
             <ion-label class="smallText bold">
@@ -64,14 +64,14 @@
             <ion-label class="smallText bold" align="left" position="floating">
               Status:
             </ion-label>
-            <ion-select formControlName="state">
+            <ion-select formControlName="state" cancelText="Annuler">
               <ion-select-option value="ACTIVE" >Actif</ion-select-option>
               <ion-select-option value="BLOCKED">Bloqué</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-col>
       </ion-row>
-      <ion-row class="topMargin">
+      <ion-row>
         <ion-col size="8" offset="2">
           <ion-button expand="block" fill="solid" (click)="onEditUser()" [disabled]="!(userForm.valid)">Editer</ion-button>
         </ion-col>

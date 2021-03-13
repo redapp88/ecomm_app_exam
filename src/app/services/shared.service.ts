@@ -6,7 +6,7 @@ import {AlertController} from '@ionic/angular';
 })
 export class SharedService {
     cities=['Casablanca','Fés','Tanger','Marrakech','Salé','Meknès','Rabat','Oujda','Kénitra','Agadir','Tétouan','Témara','Safi','Mohammédia','Khouribga','El Jadida','Layoun','Dakhla','Béni Mellal','Nador','Taza']
-    payementMethodes=["à la livraison","carte de credit"]
+    payementMethodes=["à la livraison","paypal"]
     constructor(private alertCtrl: AlertController) {
     }
 

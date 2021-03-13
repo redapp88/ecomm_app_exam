@@ -1,0 +1,20 @@
+ion-img{
+  max-width: 25%;
+  height: auto;
+  align-content: center;
+}
+
+ion-card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.response {
+  background: var(--ion-color-light-tint);
+  border: 1px solid var(--ion-color-light-shade);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+code {
+  white-space: pre;
+}

@@ -25,23 +25,23 @@ export class SubscribePage implements OnInit {
 
         this.userForm = new FormGroup({
                 username: new FormControl('', {
-                    validators: [Validators.required]
+                    validators: [Validators.required,Validators.minLength(4)]
                 }),
                 firstName: new FormControl('', {
-                    validators: [Validators.required,Validators.minLength(4),Validators.maxLength(50)]
+                    validators: [Validators.required,Validators.minLength(2),Validators.maxLength(30)]
                 }),
                 lastName: new FormControl('', {
-                validators: [Validators.required,Validators.minLength(4),Validators.maxLength(50)]
+                validators: [Validators.required,Validators.minLength(2),Validators.maxLength(30)]
             }),
                 password: new FormControl('', {
-                    validators: [Validators.required,Validators.minLength(4),Validators.maxLength(50)]
+                    validators: [Validators.required,Validators.minLength(6),Validators.maxLength(50)]
                 }),
                 repassword: new FormControl('', {
-                    validators: [Validators.required,Validators.minLength(4),Validators.maxLength(50)]
+                    validators: [Validators.required,Validators.minLength(6),Validators.maxLength(50)]
                 }),
 
              adresse: new FormControl('', {
-                validators: [Validators.required]
+                validators: [Validators.required,Validators.minLength(8)]
             }),
                 mail: new FormControl('', {
                     validators: [Validators.required,Validators.email]

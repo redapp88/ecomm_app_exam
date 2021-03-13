@@ -1,7 +1,5 @@
-<ion-content *ngIf="loadedcart?.length > 0 ">
-    <div *ngIf="isLoading" align="center">
-        <ion-spinner class="align-middle"  ></ion-spinner>
-    </div>
+<ion-content *ngIf="loadedcart?.length > 0  && !isLoading">
+
      <ion-grid *ngIf="!isLoading"  class="font-weight-bold topMargin">
 
       <ion-row class="topMargin"></ion-row>
@@ -49,7 +47,7 @@
          </ion-row>
     </ion-grid>
 </ion-content>
-<ion-content *ngIf="loadedcart?.length == 0" align="center">
+<ion-content *ngIf="loadedcart?.length == 0 && !isLoading" align="center">
     <ion-row class="topMargin"></ion-row>
     <ion-row class="topMargin">
         <ion-col>
@@ -57,4 +55,10 @@
         </ion-col>
     </ion-row>
 
+</ion-content>
+
+<ion-content *ngIf="isLoading">
+    <div  align="center" class="topMargin">
+        <ion-spinner class="align-middle"  ></ion-spinner>
+    </div>
 </ion-content>

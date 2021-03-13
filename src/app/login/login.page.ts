@@ -3,6 +3,7 @@ import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
 import {AlertController, LoadingController, ToastController} from '@ionic/angular';
 import {SharedService} from '../services/shared.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 export interface AuthData{
     username:string,
@@ -14,8 +15,7 @@ export interface AuthData{
     styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-    scannedData: any;
-    encodeData: any;
+    form: FormGroup;
     constructor(private authService:AuthService,
                 private router:Router,
                 private loadingCtrl:LoadingController,
@@ -26,6 +26,18 @@ export class LoginPage implements OnInit {
                 ) { }
 
     ngOnInit() {
+
+        this.form = new FormGroup({
+                username: new FormControl('', {
+                    validators: [Validators.required,Validators.minLength(4),Validators.maxLength(20)]
+                }),
+                password: new FormControl('', {
+                    validators: [Validators.required,Validators.minLength(6),Validators.maxLength(30)]
+                }),
+
+            }
+
+        )
     }
     ionViewWillEnter(){
         if(this.authService.curentUser)
@@ -39,12 +51,12 @@ export class LoginPage implements OnInit {
         }
     }
 
-    onLogin(form){
-        if(!form.valid){
+    onLogin(){
+        if(!this.form.valid){
             return;
         }
-        const username=form.value.username;
-        const password=form.value.password;
+        const username=this.form.value['username'];
+        const password=this.form.value['password'];
         this.login(username,password);
 
     }
@@ -97,4 +109,7 @@ export class LoginPage implements OnInit {
             }
         )
     }
+
+
+
 }

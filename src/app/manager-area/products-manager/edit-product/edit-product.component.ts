@@ -25,10 +25,10 @@ export class EditProductComponent implements OnInit {
       console.log(this.product);
         this.productForm = new FormGroup({
             id: new FormControl(this.product.id, {
-                validators: [Validators.required,Validators.maxLength(10)]
+                validators: [Validators.required,Validators.maxLength(4)]
             }),
             label: new FormControl(this.product.label, {
-                validators: [Validators.required,Validators.maxLength(30)]
+                validators: [Validators.required,Validators.maxLength(50),Validators.minLength(8)]
             }),
 
             price: new FormControl(this.product.price, {

@@ -1,0 +1,34 @@
+<ion-header class="ion-text-center">
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid class="ion-no-padding">
+  </ion-grid>
+  <ion-card class="welcome-card ion-margin">
+    <div align="center">
+    <ion-img src="./assets/images/paypal.png"></ion-img>
+    </div>
+    <ion-card-header>
+      <ion-card-title><b>Votre Facture Cigma Ecomm</b></ion-card-title>
+      <ion-row>
+        <ion-col style="padding-left: 0;">Total à payer</ion-col>
+        <ion-col class="ion-text-end">
+          {{paymentAmount}} {{currencyIcon}}
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding">
+      <ion-button *ngIf="plat=='mobile'" expand="full" color="success" class="ion-no-margin" (click)="payWithPaypal()">Payer avec PayPal</ion-button>
+      <div *ngIf="plat=='web'" id="paypal-button-container"></div>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

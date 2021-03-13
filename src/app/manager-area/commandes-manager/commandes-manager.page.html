@@ -3,28 +3,28 @@
   <ion-grid  class="font-weight-bold">
     <ion-radio-group  formControlName="state" (ionChange)="onStateChanged($event)">
       <ion-row>
-        <ion-col sizeLg="2"  offsetLg="3">
+        <ion-col size=6 sizeLg="2"  offsetLg="3">
           <ion-item lines="none">
             <ion-radio item-left value="WAITING"></ion-radio>
             <ion-label class="smallText">En Attente</ion-label>
           </ion-item>
         </ion-col>
 
-        <ion-col  sizeLg="2">
+        <ion-col size="6"  sizeLg="2">
           <ion-item lines="none">
             <ion-radio  item-left value="SHIPPED"></ion-radio>
             <ion-label class="smallText">Expédié</ion-label>
           </ion-item>
         </ion-col>
 
-          <ion-col  sizeLg="2">
+          <ion-col size="6"  sizeLg="2">
               <ion-item lines="none">
                   <ion-radio  item-left value="DELETED"></ion-radio>
                   <ion-label class="smallText">Supprimé</ion-label>
               </ion-item>
           </ion-col>
 
-        <ion-col  sizeLg="2">
+        <ion-col size="6"  sizeLg="2">
           <ion-item lines="none">
             <ion-radio item-left value="*"></ion-radio>
             <ion-label class="smallText">Tout</ion-label>
@@ -32,9 +32,11 @@
         </ion-col>
 
       </ion-row>
-      <ion-spinner class="align-middle" *ngIf="isLoading" ></ion-spinner>
-    </ion-radio-group>
 
+    </ion-radio-group>
+    <div *ngIf="isLoading" align="center" class="topMargin">
+      <ion-spinner class="align-middle" ></ion-spinner>
+    </div>
     <ion-row  class="topMargin"></ion-row>
     <div *ngIf="!isLoading">
     <ion-row  *ngFor="let commande of loadedCommandes" [ngClass]="{'text-yellow': commande.state === 'WAITING','text-red': commande.state === 'DELETED','text-green': commande.state === 'SHIPPED'}" >

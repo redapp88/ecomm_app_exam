@@ -25,7 +25,10 @@
                         <ion-label class="smallText bold" align="left" position="floating">
                             Adresse de livraison:
                         </ion-label>
-                        <ion-textarea formControlName="shippingAdress" rows="2"></ion-textarea>
+                        <ion-textarea formControlName="shippingAdress"></ion-textarea>
+                    </ion-item>
+                    <ion-item lines="none" *ngIf="!commandeForm.get('shippingAdress').valid && commandeForm.get('shippingAdress').touched">
+                        <ion-text class="smallText" color="danger">L'adresse de livraison est de 10 caractère minimum</ion-text>
                     </ion-item>
                 </ion-col>
             </ion-row>
@@ -33,16 +36,16 @@
             <ion-row>
 
                 <ion-col>
-                    <ion-item class="">
+                    <ion-item >
                         <ion-label  color="primary" position="floating" class="">Ville</ion-label>
-                        <ion-select formControlName="city" class="">
+                        <ion-select formControlName="city" cancelText="annuler">
                             <ion-select-option *ngFor="let city of cities" [value]="city">{{city}}</ion-select-option>
                         </ion-select>
                     </ion-item>
                 </ion-col>
             </ion-row>
 
-            <ion-radio-group formControlName="payementMethode" class="topMargin">
+            <ion-radio-group formControlName="payementMethode">
                 <ion-row>
 
 
@@ -55,7 +58,7 @@
 
                 </ion-row>
             </ion-radio-group>
-            <ion-row class="topMargin">
+            <ion-row>
                 <ion-col size="8" offset="2">
                     <ion-button expand="block" fill="solid" (click)="onMakeCommande()"
                                 [disabled]="!(commandeForm.valid)">Commander

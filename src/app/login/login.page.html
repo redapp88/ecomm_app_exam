@@ -1,6 +1,6 @@
 <ion-content>
     <div>
-        <form #f="ngForm" (ngSubmit)="onLogin(f)">
+        <form [formGroup]="form">
             <ion-grid>
                 <ion-row>
                     <ion-col>
@@ -17,30 +17,30 @@
                                 <ion-label class="font-weight-bold" align="left" position="floating">Nom d'utilisateur
                                 </ion-label>
                                 <ion-input
-                                        align="left"
-                                        ngModel
-                                        name="username"
-                                        required
-                                        #idCtrl="ngModel"
+                                        formControlName="username"
+                                        maxlength=20
                                         type="text"
-                                        class="font-weight-bold">
+                                        class="font-weight-bold"
+                                        (keyup.enter)="onLogin()">
                                 </ion-input>
                             </ion-item>
-
-                            <ion-item>
+                            <ion-item lines="none" *ngIf="!form.get('username').valid && form.get('username').touched">
+                                    <ion-text class="smallText" color="danger">Le nom d'utilisateur est de 5 à 20 caractère</ion-text>
+                            </ion-item>
+                            <ion-item >
                                 <ion-label class="font-weight-bold" align="left" position="floating">
                                     mot de passe
                                 </ion-label>
                                 <ion-input
-                                        class="font-weight-bold"
-                                        align="left"
-                                        ngModel
-                                        name="password"
+                                        formControlName="password"
+                                        maxlength=50
                                         type="password"
-                                        required
-                                        minlength="4"
-                                        #passwordCtrl="ngModel">
+                                        class="font-weight-bold"
+                                        (keyup.enter)="onLogin()">
                                 </ion-input>
+                            </ion-item>
+                            <ion-item lines="none" *ngIf="!form.get('password').valid && form.get('password').touched">
+                                <ion-text class="smallText" color="danger">Le mot de passe est de 6 à 30 caractère</ion-text>
                             </ion-item>
                         </ion-list>
 
@@ -52,9 +52,10 @@
                     <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" size-lg="4" offset-lg="4">
                         <ion-button
                                 class="font-weight-bold"
-                                type="submit"
                                 color="primary"
-                                expand="block">
+                                expand="block"
+                                (click)="onLogin()">
+
                             Login
                         </ion-button>
                     </ion-col>
@@ -70,6 +71,7 @@
                                 routerLink="/subscribe">
                             S'inscrire
                         </ion-button>
+
                     </ion-col>
                 </ion-row>
             </ion-grid>

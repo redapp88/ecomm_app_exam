@@ -12,7 +12,10 @@
 </ion-header>
 
 <ion-content >
-  <ion-spinner class="align-middle" *ngIf="isLoading" ></ion-spinner>
+  <div align="center" class="topMargin">
+    <ion-spinner class="align-middle" *ngIf="isLoading" ></ion-spinner>
+  </div>
+
   <form [formGroup]="userForm" *ngIf="!isLoading">
     <ion-grid class="topMargin">
       <ion-row>
@@ -71,7 +74,7 @@
         <ion-col size="4" >
           <ion-item >
             <ion-label  color="primary" position="floating" class="">Ville</ion-label>
-            <ion-select formControlName="city" class="">
+            <ion-select formControlName="city" cancelText="annuler">
               <ion-select-option *ngFor="let city of cities" [value]="city">{{city}}</ion-select-option>
             </ion-select>
           </ion-item>

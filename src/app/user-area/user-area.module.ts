@@ -9,6 +9,7 @@ import { UserAreaPageRoutingModule } from './user-area-routing.module';
 import { UserAreaPage } from './user-area.page';
 import {EditProfileComponent} from '../shared/edit-profile/edit-profile.component';
 import {EditPasswordComponent} from '../shared/edit-password/edit-password.component';
+import {GeneralModule} from '../general.module';
 
 @NgModule({
   imports: [
@@ -16,9 +17,10 @@ import {EditPasswordComponent} from '../shared/edit-password/edit-password.compo
     FormsModule,
       ReactiveFormsModule,
     IonicModule,
-    UserAreaPageRoutingModule
+    UserAreaPageRoutingModule,
+      GeneralModule,
   ],
-  declarations: [UserAreaPage,EditProfileComponent,EditPasswordComponent],
-    entryComponents:[EditProfileComponent,EditPasswordComponent]
+  declarations: [UserAreaPage,EditProfileComponent],
+    entryComponents:[EditProfileComponent]
 })
 export class UserAreaPageModule {}

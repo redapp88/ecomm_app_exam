@@ -22,6 +22,9 @@
             </ion-label>
             <ion-input type="text" formControlName="id" maxlength=10></ion-input>
           </ion-item>
+          <ion-item lines="none" *ngIf="!productForm.get('id').valid && productForm.get('id').touched">
+            <ion-text class="smallText" color="danger">La réference est de 1 a 4 caractère</ion-text>
+          </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -32,6 +35,9 @@
             </ion-label>
             <ion-input type="text" formControlName="label" maxlength=30></ion-input>
           </ion-item>
+          <ion-item lines="none" *ngIf="!productForm.get('label').valid && productForm.get('label').touched">
+            <ion-text class="smallText" color="danger">La description est de 8 a 50 caractère</ion-text>
+          </ion-item>
         </ion-col>
       </ion-row>
 
@@ -41,7 +47,10 @@
             <ion-label  class="smallText" align="left" position="floating">
               Prix
             </ion-label>
-            <ion-input type="number" numbersOnly placeholder="Entrer le prix" formControlName="price" min="0.1" maxlength=30></ion-input>
+            <ion-input type="number" numbersOnly placeholder="Entrer le prix en Dhs" formControlName="price" min="0.1" maxlength=30></ion-input>
+          </ion-item>
+          <ion-item lines="none" *ngIf="!productForm.get('price').valid && productForm.get('price').touched">
+            <ion-text class="smallText" color="danger">Le prix n'est pas correcte</ion-text>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -53,6 +62,9 @@
               Quantité
             </ion-label>
             <ion-input type="number" numbersOnly placeholder="Entrer la quantité" formControlName="quantity" min="1" maxlength=30></ion-input>
+          </ion-item>
+          <ion-item lines="none" *ngIf="!productForm.get('quantity').valid && productForm.get('quantity').touched">
+            <ion-text class="smallText" color="danger">La quantité n'est pas correcte</ion-text>
           </ion-item>
         </ion-col>
       </ion-row>

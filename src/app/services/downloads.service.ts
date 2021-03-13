@@ -21,7 +21,7 @@ export class DownloadsService {
     public downloadFile(id:number) {
         return new Observable(observer=>{
             let url=`${environment.backEndUrl}/user/commandeCsvExport?id=${id}`;
-            let fileName=id+"";
+            let fileName="commande_"+id+"";
             if (!this.platform.is('cordova')) {
                 window.open(url, '_system');
                 observer.complete()
@@ -31,7 +31,7 @@ export class DownloadsService {
                     uri: url,
                     title: fileName,
                     description: '',
-                    mimeType: '',
+                    mimeType: 'text/csv',
                     visibleInDownloadsUi: true,
                     notificationVisibility: NotificationVisibility.VisibleNotifyCompleted,
                     destinationInExternalFilesDir: {

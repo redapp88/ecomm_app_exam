@@ -8,6 +8,7 @@ import { ManagerAreaPageRoutingModule } from './manager-area-routing.module';
 
 import { ManagerAreaPage } from './manager-area.page';
 import {EditPasswordComponent} from '../shared/edit-password/edit-password.component';
+import {GeneralModule} from '../general.module';
 
 @NgModule({
   imports: [
@@ -15,9 +16,10 @@ import {EditPasswordComponent} from '../shared/edit-password/edit-password.compo
     FormsModule,
       ReactiveFormsModule,
     IonicModule,
-    ManagerAreaPageRoutingModule
+    ManagerAreaPageRoutingModule,
+      GeneralModule
   ],
-  declarations: [ManagerAreaPage,EditPasswordComponent],
-    entryComponents:[EditPasswordComponent]
+  declarations: [ManagerAreaPage],
+    entryComponents:[]
 })
 export class ManagerAreaPageModule {}

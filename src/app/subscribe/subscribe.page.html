@@ -18,12 +18,18 @@
             <ion-label  color="primary" position="floating" class="">Nom d'utilisateur</ion-label>
             <ion-input  formControlName="username"  maxlength=20></ion-input>
           </ion-item>
+          <ion-item lines="none" *ngIf="!userForm.get('username').valid && userForm.get('username').touched">
+            <ion-text class="smallText" color="danger">Le mot de passe est de 4 à 20 caractères</ion-text>
+          </ion-item>
         </ion-col>
 
         <ion-col  sizeLg="3" >
           <ion-item class="">
             <ion-label  color="primary" position="floating" class="">Email</ion-label>
             <ion-input formControlName="mail"></ion-input>
+          </ion-item>
+          <ion-item lines="none" *ngIf="!userForm.get('mail').valid && userForm.get('mail').touched">
+            <ion-text class="smallText" color="danger">L'adresse mail n'est pas valide</ion-text>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -34,11 +40,17 @@
             <ion-label  color="primary" position="floating" class="">Mot de passe</ion-label>
             <ion-input type="password" formControlName="password"></ion-input>
           </ion-item>
+          <ion-item lines="none" *ngIf="!userForm.get('password').valid && userForm.get('password').touched">
+            <ion-text class="smallText" color="danger">Le mot de passe est de 6 à 30 caractères</ion-text>
+          </ion-item>
         </ion-col>
         <ion-col sizeLg="3" >
           <ion-item  class="">
             <ion-label color="primary" position="floating" class="">ressaisir le MP</ion-label>
             <ion-input type="password" formControlName="repassword"></ion-input>
+          </ion-item>
+          <ion-item lines="none" *ngIf="!userForm.get('repassword').valid && userForm.get('repassword').touched">
+            <ion-text class="smallText" color="danger">n'est identique au mot de passe saisie</ion-text>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -49,6 +61,9 @@
             <ion-label  color="primary" position="floating" class="">Prénom</ion-label>
             <ion-input  formControlName="firstName"  maxlength=35></ion-input>
           </ion-item>
+          <ion-item lines="none" *ngIf="!userForm.get('firstName').valid && userForm.get('firstName').touched">
+            <ion-text class="smallText" color="danger">Le prénom est de 2 à 30 caractères</ion-text>
+          </ion-item>
         </ion-col>
 
         <ion-col sizeLg="3">
@@ -56,20 +71,20 @@
             <ion-label  color="primary" position="floating" class="">Nom</ion-label>
             <ion-input formControlName="lastName" maxlength=35></ion-input>
           </ion-item>
+          <ion-item lines="none" *ngIf="!userForm.get('lastName').valid && userForm.get('lastName').touched">
+            <ion-text class="smallText" color="danger">Le nom est de 2 à 30 caractères</ion-text>
+          </ion-item>
         </ion-col>
       </ion-row>
 
-
-
-
-
         <ion-row>
-
-
           <ion-col offsetLg="3" sizeLg="6">
             <ion-item >
               <ion-label  color="primary" position="floating" class="">Telephone</ion-label>
               <ion-input formControlName="phone" type="numeric"></ion-input>
+            </ion-item>
+            <ion-item lines="none" *ngIf="!userForm.get('phone').valid && userForm.get('phone').touched">
+              <ion-text class="smallText" color="danger">Saisir un numero de telephone valide</ion-text>
             </ion-item>
           </ion-col>
 
@@ -81,12 +96,15 @@
             <ion-label  color="primary" position="floating" class="">Adresse</ion-label>
             <ion-textarea rows="2" formControlName="adresse"  maxlength=150></ion-textarea>
           </ion-item>
+          <ion-item lines="none" *ngIf="!userForm.get('adresse').valid && userForm.get('adresse').touched">
+            <ion-text class="smallText" color="danger">L'adresse est obligatoire</ion-text>
+          </ion-item>
         </ion-col>
 
         <ion-col  sizeLg="3">
           <ion-item>
             <ion-label  color="primary" position="floating" class="">Ville</ion-label>
-            <ion-select formControlName="city" class="">
+            <ion-select formControlName="city" cancelText="annuler">
               <ion-select-option *ngFor="let city of cities" [value]="city">{{city}}</ion-select-option>
             </ion-select>
           </ion-item>
